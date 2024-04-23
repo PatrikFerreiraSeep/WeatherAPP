@@ -1,9 +1,18 @@
-<div class"row">
-    <div class="col-md-6 col-md-offset-3">
-        <h4>Forecast by City</h4>
-        <div class="form-group">
-            <input type="text" ng-model="city" class="form-control">
+<div class="container">
+    <h1>WeatherAPP</h1>
+    <div ng-show="weatherResult" class="teste">
+        <h3>{{ weatherResult.name }}, {{ weatherResult.sys.country }}</h3>
+        <h1>{{ converteToCelsius(weatherResult.main.temp) }}°C</h1>
+        <div class="flex">
+            <p>Min: {{ converteToCelsius(weatherResult.main.temp_min) }}°C</p>
+            <p>Max: {{ converteToCelsius(weatherResult.main.temp_max) }}°C</p>
+
         </div>
-        <a href="#/forecast" class="btn btn-primary">Get Forecast</a>
+    </div>
+
+    <div class="column">
+        <input type="text" ng-model="city" class="form-control" />
+        <button ng-click="updateWeather()" class="btn btn-primary">Search</button>
     </div>
 </div>
+
